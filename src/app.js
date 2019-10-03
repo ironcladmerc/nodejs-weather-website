@@ -1,9 +1,15 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
+const dotenv = require('dotenv');
 
 const forecast = require("./utils/forecast");
 const geocode = require("./utils/geocode");
+
+const result = dotenv.config();
+if (result.error) {
+  throw result.error;
+}
 
 const app = express();
 const port = process.env.PORT || 3000;
